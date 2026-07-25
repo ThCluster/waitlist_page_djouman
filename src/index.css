@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(0, 255, 127, 0.35), 0 0 30px rgba(0, 255, 127, 0.15);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(0, 255, 127, 0.65), 0 0 50px rgba(0, 255, 127, 0.3);
+    }
+  }
+
+  .glow-button {
+    animation: glow-pulse 3s infinite ease-in-out;
+  }
+
+  .bg-grid-pattern {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  .african-pattern-bg {
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 255, 127, 0.06) 0%, transparent 60%);
+  }
+}
+
