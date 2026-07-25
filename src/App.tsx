@@ -34,17 +34,24 @@ export default function App() {
   const [recruiterCount, setRecruiterCount] = useState<number>(247);
 
   useEffect(() => {
-    // Fetch real count from API if available
-    fetch('/api/waitlist/')
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data && typeof data.count === 'number') {
-          setRecruiterCount(data.count);
+    // Fetch real count from Django REST API endpoint
+    const fetchCount = async () => {
+      try {
+        let res = await fetch('http://localhost:8000/api/waitlist/').catch(() => null);
+        if (!res || !res.ok) {
+          res = await fetch('/api/waitlist/').catch(() => null);
         }
-      })
-      .catch((err) => {
+        if (res && res.ok) {
+          const data = await res.json();
+          if (data && typeof data.count === 'number') {
+            setRecruiterCount(data.count);
+          }
+        }
+      } catch (err) {
         console.log('Using default waitlist count:', err);
-      });
+      }
+    };
+    fetchCount();
   }, []);
 
   const handleSuccessSubmit = (newCount?: number) => {

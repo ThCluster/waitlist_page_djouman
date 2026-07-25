@@ -40,14 +40,27 @@ export const EmailForm: React.FC<EmailFormProps> = ({ currentCount, onSuccessSub
       position: currentCount + 1,
     };
 
+    const API_URL = 'http://localhost:8000/api/waitlist/';
+
     try {
-      const response = await fetch('/api/waitlist/', {
+      let response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
-      });
+      }).catch(() => null);
+
+      // Fallback to relative endpoint if CORS or direct URL fails in preview sandbox
+      if (!response) {
+        response = await fetch('/api/waitlist/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+      }
 
       const data: ApiResponse = await response.json().catch(() => ({}));
 
