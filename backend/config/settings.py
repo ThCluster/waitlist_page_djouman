@@ -11,13 +11,13 @@ load_dotenv(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-djouman2026-waitlist')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['localhost','127.0.0.1','waitlistpagedjouman-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://waitlistpagedjouman-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 
 # Application definition
 
