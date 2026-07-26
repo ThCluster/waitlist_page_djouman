@@ -1,6 +1,0 @@
-{
-  "name": "Djouman",
-  "description": "Page d'attente mystérieuse pour Djouman - Espace Étudiant",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

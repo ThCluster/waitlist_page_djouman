@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'motion/react';
-import { CheckCircle2, ArrowRight, Loader2 } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Loader2, X } from 'lucide-react';
 import { ApiResponse } from '../types';
 
 interface EmailFormProps {
@@ -161,8 +161,21 @@ export const EmailForm: React.FC<EmailFormProps> = ({ currentCount, onSuccessSub
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="bg-[#111111] border border-[#00FF7F]/30 rounded-2xl p-6 text-center flex flex-col items-center gap-3 shadow-[0_0_30px_rgba(0,255,127,0.15)]"
+            className="relative bg-[#111111] border border-[#00FF7F]/30 rounded-2xl p-6 md:p-8 text-center flex flex-col items-center gap-3 shadow-[0_0_30px_rgba(0,255,127,0.15)]"
           >
+            {/* Close Button Cross */}
+            <button
+              type="button"
+              onClick={() => {
+                setIsSuccess(false);
+                setEmail('');
+              }}
+              className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border border-white/10 flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Fermer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
             <div className="w-14 h-14 bg-[#00FF7F]/10 rounded-full flex items-center justify-center border border-[#00FF7F]/40 mb-1">
               <CheckCircle2 className="w-8 h-8 text-[#00FF7F]" />
             </div>
