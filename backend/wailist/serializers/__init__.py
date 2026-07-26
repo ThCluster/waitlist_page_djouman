@@ -1,0 +1,1 @@
+from .wailist_serializers import WaitlistSerializer

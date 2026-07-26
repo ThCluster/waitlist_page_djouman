@@ -1,0 +1,1 @@
+from .wailist import Waitlist

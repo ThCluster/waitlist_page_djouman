@@ -1,0 +1,110 @@
+
+# Fichiers DLL compilés en octets / optimisés
+__pycache__ /
+* .py [ code ]
+* $py.class
+
+# Extensions C
+* .donc
+
+# Distribution / emballage
+.Python
+environnement /
+construire /
+développer-œufs /
+dist /
+téléchargements /
+œufs /
+.œufs /
+lib /
+lib64 /
+pièces /
+sdist /
+var /
+roues /
+* .egg-info /
+.installed.cfg
+* .œuf
+
+# PyInstaller
+#   Ces fichiers sont généralement écrits par un script Python à partir d'un modèle
+#   avant que PyInstaller ne construise l'exe, afin d'y injecter la date et d'autres informations.
+* .manifeste
+* .spec
+
+# Journaux d'installation
+pip-log.txt
+pip-supprimer-ce-répertoire.txt
+
+# Rapports de tests unitaires / de couverture
+htmlcov /
+.tox /
+.couverture
+.couverture. *
+.cache
+nosetests.xml
+coverage.xml
+* .couverture
+.hypothèse /
+
+# Traductions
+* .mo
+* .pot
+
+# Éléments Django :
+* .enregistrer
+local_settings.py
+
+# Matériel pour flasques :
+exemple /
+.webassets-cache
+
+# Trucs de Scrapy :
+.scrapy
+
+# Documentation Sphinx
+docs / _build /
+
+# PyBuilder
+cible /
+
+# Carnet Jupyter
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# fichier de planification Celery Beat
+calendrier celerybeat
+
+# Fichiers analysés par SageMath
+* .sage.py
+
+# dotenv
+.env
+
+# environnement virtuel
+.venv
+venv /
+ENVIRONNEMENT /
+.vscode
+# Paramètres du projet Spyder
+.spyderproject
+.projet espion
+
+# Paramètres du projet Rope
+.projet de corde
+
+# Documentation mkdocs
+/ site
+
+# monpy
+.mypy_cache /
+
+.DS_Store
+* .sqlite3
+* .pyc
+* .db
+* .pid
+
+# Ignorez les migrations Django en développement si vous travaillez en équipe
