@@ -17,6 +17,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 ALLOWED_HOSTS = ['localhost','127.0.0.1','waitlistpagedjouman-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://waitlistpagedjouman-production.up.railway.app']
 
 # Application definition
 
