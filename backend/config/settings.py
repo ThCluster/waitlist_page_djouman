@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-djouman2026-waitlist'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['waitlistpagedjouman-production.up.railway.app','localhost','127.0.0.1',]
+ALLOWED_HOSTS = ['localhost','127.0.0.1','waitlistpagedjouman-production.up.railway.app']
 
 # Application definition
 
