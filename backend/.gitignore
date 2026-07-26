@@ -1,110 +1,106 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Fichiers DLL compilés en octets / optimisés
-__pycache__ /
-* .py [ code ]
-* $py.class
+# C extensions
+*.so
 
-# Extensions C
-* .donc
-
-# Distribution / emballage
+# Distribution / packaging
 .Python
-environnement /
-construire /
-développer-œufs /
-dist /
-téléchargements /
-œufs /
-.œufs /
-lib /
-lib64 /
-pièces /
-sdist /
-var /
-roues /
-* .egg-info /
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
 .installed.cfg
-* .œuf
+*.egg
 
 # PyInstaller
-#   Ces fichiers sont généralement écrits par un script Python à partir d'un modèle
-#   avant que PyInstaller ne construise l'exe, afin d'y injecter la date et d'autres informations.
-* .manifeste
-* .spec
+*.manifest
+*.spec
 
-# Journaux d'installation
+# Installer logs
 pip-log.txt
-pip-supprimer-ce-répertoire.txt
+pip-delete-this-directory.txt
 
-# Rapports de tests unitaires / de couverture
-htmlcov /
-.tox /
-.couverture
-.couverture. *
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
-* .couverture
-.hypothèse /
+*.cover
+.hypothesis/
 
-# Traductions
-* .mo
-* .pot
+# Translations
+*.mo
+*.pot
 
-# Éléments Django :
-* .enregistrer
+# Django stuff:
+*.log
 local_settings.py
 
-# Matériel pour flasques :
-exemple /
+# Flask stuff:
+instance/
 .webassets-cache
 
-# Trucs de Scrapy :
+# Scrapy stuff:
 .scrapy
 
-# Documentation Sphinx
-docs / _build /
+# Sphinx documentation
+docs/_build/
 
 # PyBuilder
-cible /
+target/
 
-# Carnet Jupyter
+# Jupyter Notebook
 .ipynb_checkpoints
 
 # pyenv
 .python-version
 
-# fichier de planification Celery Beat
-calendrier celerybeat
+# celery beat schedule file
+celerybeat-schedule
 
-# Fichiers analysés par SageMath
-* .sage.py
+# SageMath parsed files
+*.sage.py
 
 # dotenv
 .env
 
-# environnement virtuel
+# virtualenv
 .venv
-venv /
-ENVIRONNEMENT /
-.vscode
-# Paramètres du projet Spyder
+venv/
+ENV/
+.vscode/
+
+# Spyder project settings
 .spyderproject
-.projet espion
+.spyproject
 
-# Paramètres du projet Rope
-.projet de corde
+# Rope project settings
+.ropeproject
 
-# Documentation mkdocs
-/ site
+# mkdocs documentation
+/site
 
-# monpy
-.mypy_cache /
+# mypy
+.mypy_cache/
 
 .DS_Store
-* .sqlite3
-* .pyc
-* .db
-* .pid
-
-# Ignorez les migrations Django en développement si vous travaillez en équipe
+*.sqlite3
+*.pyc
+*.db
+*.pid
