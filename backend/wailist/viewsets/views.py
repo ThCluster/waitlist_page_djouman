@@ -1,20 +1,13 @@
-# views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from wailist.models.wailist import Waitlist
-from wailist.serializers.wailist_serializers import WaitlistSerializer
 from django.core.mail import send_mail
-
+from django.conf import settings
+from ..models import Waitlist
+from ..serializers import WaitlistSerializer
 class WaitlistView(APIView):
 
-    def get(self, request):
-        count = Waitlist.objects.count()
-        return Response({'count': 247 + count})
-
     def post(self, request):
-        serializer = WaitlistSerializer(
-            data=request.data
-        )
+        serializer = WaitlistSerializer(data=request.data)
         if serializer.is_valid():
             position = Waitlist.objects.count() + 1
             entry, created = Waitlist.objects.get_or_create(
@@ -25,42 +18,23 @@ class WaitlistView(APIView):
                 entry.a_des_privileges = True
                 entry.save()
 
-            # Envoi des emails avec gestion des erreurs
-            try:
-                # 1. Email de confirmation à l'utilisateur
-                send_mail(
-                    subject='Bienvenue sur la Waitlist Djouman ! 🎉',
-                    message=f'''
-Bonjour,
+            # Envoi email notification
+            send_mail(
+                subject='🎉 Nouvel inscrit Djouman !',
+                message=f'''
+Nouvel inscrit sur la Waitlist Djouman !
 
-Votre inscription à la Waitlist Djouman est confirmée !
+Position : #{entry.position}
+Email : {entry.email}
+Privilèges exclusifs : {"✅ Oui" if entry.a_des_privileges else "❌ Non"}
 
-Vous êtes à la position : #{entry.position}
-Date d'inscription : {entry.inscrit_le.strftime("%d/%m/%Y")}
-Privilèges exclusifs : {"Oui 🎁 (Vous faites partie des 100 premiers !)" if entry.a_des_privileges else "Non"}
-
-Nous vous contacterons bientôt pour le lancement officiel.
-
-À très vite !
 ---
-L'équipe Djouman — Abidjan 2026
-                    ''',
-                    from_email='djouman.rh@outlook.com',
-                    recipient_list=[entry.email],
-                    fail_silently=False,
-                )
-
-                # 2. (Optionnel) Email de notification pour vous (l'admin)
-                send_mail(
-                    subject=f'Nouvel inscrit Waitlist : #{entry.position}',
-                    message=f'Nouvel inscrit : {entry.email} à la position #{entry.position}',
-                    from_email='djouman.rh@outlook.com',
-                    recipient_list=['djouman.rh@outlook.com'],
-                    fail_silently=True,
-                )
-            except Exception as e:
-                print(f"⚠️ Erreur lors de l'envoi de l'email : {e}")
-                # L'inscription a réussi en base de données, donc on ne bloque pas l'utilisateur.
+Djouman — Abidjan 2026
+                ''',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.ADMIN_EMAIL],
+                fail_silently=False,
+            )
 
             return Response({
                 'success': True,
@@ -68,7 +42,4 @@ L'équipe Djouman — Abidjan 2026
                 'privileges': entry.a_des_privileges
             })
 
-        return Response(
-            serializer.errors, 
-            status=400
-        )
+        return Response(serializer.errors, status=400)
