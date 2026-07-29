@@ -26,7 +26,7 @@ Nouvel inscrit sur la Waitlist Djouman !
 
 Position : #{entry.position}
 Email : {entry.email}
-Privilèges exclusifs : {"✅ Oui" if entry.a_des_privileges else "❌ Non"}
+Privilèges exclusifs : {" Oui" if entry.a_des_privileges else " Non"}
 
 ---
 Djouman — Abidjan 2026
